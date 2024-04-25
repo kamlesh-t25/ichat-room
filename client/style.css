@@ -15,7 +15,9 @@ nav{
     cursor: pointer;
 }
 .container{
-    width: 80%;
+    /* float: left; */
+    /* margin-left: 20px; */
+    width: 70%;
     border-radius: 8px;
     border: 2px solid red;
     margin: auto;
@@ -24,6 +26,15 @@ nav{
     padding: 10px 15px;
     margin-bottom: 5px;
     overflow-y: auto;
+}
+
+.names{
+    background-color: bisque;
+    float: right;
+    padding: 10px;
+    width: 22%;
+    border: 2px solid blue;
+    height: 70vh;
 }
 
 .left{
@@ -51,7 +62,7 @@ nav{
     /* border: 2px solid red; */
 }
 #messageInp{
-    width: 73%;
+    width: 62%;
     padding: 5px;
     font-size: larger;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
