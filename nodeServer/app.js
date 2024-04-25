@@ -5,7 +5,7 @@ const { Server } = require('socket.io');
 const server = http.createServer();
   const io = new Server(server, {
     cors: {
-      origin: 'https://fantastic-youtiao-d9c108.netlify.app',
+      origin: 'https://snazzy-pasca-0b4eb7.netlify.app/',
       methods: ['GET', 'POST']
     }
   });

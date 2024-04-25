@@ -30,7 +30,7 @@ form.addEventListener('submit',(e)=>{
     e.preventDefault();
     const message=messageInp.value;
     append(`You :- ${message}`,'right');
-    socket.emit('send','message');
+    socket.emit('send',message);
     messageInp.value='';
     // console.log('2222');
 })
