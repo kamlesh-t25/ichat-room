@@ -24,6 +24,9 @@ function append(message, position) {
     messageElement.classList.add('message');
     messageElement.classList.add(position);
     messageContainer.append(messageElement);
+
+    //to scroll bottom
+    messageContainer.scrollTop = messageContainer.scrollHeight;
 }
 
 form.addEventListener('submit',(e)=>{
