@@ -1,4 +1,4 @@
-const socket=io('https://ichat-room-1.onrender.com');
+const socket=io('https://ichat-room-3.onrender.com');
 
 const form=document.getElementById('formId');
 const messageInp=document.getElementById('messageInp');
@@ -14,6 +14,7 @@ document.getElementById('joinChatButton').addEventListener('click', () => {
 });
 
 socket.on('user-joined', name => {
+    // console.log('1111');
     append(`${name}  -: joined the chat`, 'right');
 });
 
@@ -31,10 +32,12 @@ form.addEventListener('submit',(e)=>{
     append(`You :- ${message}`,'right');
     socket.emit('send','message');
     messageInp.value='';
+    // console.log('2222');
 })
 
 socket.on('receive',data=>{
     append(`${data.name} : ${data.message}`,'left');
+    console.log('3333');
 })
 
 socket.on('left',name=>{

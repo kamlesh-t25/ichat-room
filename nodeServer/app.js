@@ -3,13 +3,14 @@ const { Server } = require('socket.io');
 
 // Create HTTP server
 const server = http.createServer();
-const io = new Server(server, {
-  cors: {
-    origin: 'https://your-netlify-app-url.netlify.app',
-    methods: ['GET', 'POST']
-  }
-});
-
+  const io = new Server(server, {
+    cors: {
+      origin: 'https://fantastic-youtiao-d9c108.netlify.app',
+      methods: ['GET', 'POST']
+    }
+  });
+  
+  
 const users = {};
 
 // Listen for 'connection' event from clients
