@@ -25,9 +25,16 @@ io.on('connection', (socket) => {
   });
 
   // Listen for 'send' event from a user
+  // socket.on('send', (message) => {
+  //   io.emit('receive', { message: message, name: users[socket.id] });
+  // });
+
+
   socket.on('send', (message) => {
-    io.emit('receive', { message: message, name: users[socket.id] });
-  });
+    socket.broadcast.emit('receive', { message: message, name: users[socket.id] });
+});
+
+
 
   // Listen for 'disconnect' event
   socket.on('disconnect', () => {
