@@ -1,28 +1,45 @@
-const { Server } = require("socket.io");
-const io = new Server(8000, {
+const http = require('http');
+const { Server } = require('socket.io');
+
+// Create HTTP server
+const server = http.createServer();
+const io = new Server(server, {
   cors: {
-    origin: "http://127.0.0.1:5500",
-    methods: ["GET", "POST"]
+    origin: 'http://127.0.0.1:5500',
+    methods: ['GET', 'POST']
   }
 });
 
-const users = [];
+const users = {};
 
-// Listen for 'chat message' event from clients
+// Listen for 'connection' event from clients
 io.on('connection', (socket) => {
-    // Listen for 'new-user-joined' event from a user
-    socket.on('new-user-joined', (name) => {
-        console.log('new user', name);
-        users[socket.id] = name;
-        socket.broadcast.emit('user-joined',name);
-    });
-    // Listen for 'send' event from a user
-    socket.on('send', (message) => {
-        socket.broadcast.emit('receive', { message: message, name: users[socket.id] });
-    });
+  console.log('A user connected.');
 
-    socket.on('disconnect',message=>{
-        socket.broadcast.emit('left',users[socket.id]);
-        delete users[socket.id];
-    })
+  // Listen for 'new-user-joined' event from a user
+  socket.on('new-user-joined', (name) => {
+    console.log('New user joined:', name);
+    users[socket.id] = name;
+    socket.broadcast.emit('user-joined', name);
+  });
+
+  // Listen for 'send' event from a user
+  socket.on('send', (message) => {
+    io.emit('receive', { message: message, name: users[socket.id] });
+  });
+
+  // Listen for 'disconnect' event
+  socket.on('disconnect', () => {
+    if (users[socket.id]) {
+      socket.broadcast.emit('left', users[socket.id]);
+      delete users[socket.id];
+    }
+    console.log('A user disconnected.');
+  });
+});
+
+// Start the server
+const PORT = process.env.PORT || 8000;
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
