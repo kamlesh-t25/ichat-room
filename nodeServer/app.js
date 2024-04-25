@@ -5,7 +5,7 @@ const { Server } = require('socket.io');
 const server = http.createServer();
 const io = new Server(server, {
   cors: {
-    origin: 'http://127.0.0.1:5500',
+    origin: 'https://your-netlify-app-url.netlify.app',
     methods: ['GET', 'POST']
   }
 });
