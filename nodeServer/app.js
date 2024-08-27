@@ -22,7 +22,7 @@ io.on('connection', (socket) => {
   socket.on('new-user-joined', (name) => {
     console.log('New user joined:', name);
     users[socket.id] = name;
-    socket.broadcast.emit('user-joined', name);
+    socket.broadcast.emit('user-joined', name.toUpperCase());
   });
 
   // Listen for 'send' event from a user
