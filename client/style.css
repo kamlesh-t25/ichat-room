@@ -82,7 +82,8 @@ nav h3{
 .inputM{
     /* margin: auto; */
     text-align: center;
-    /* width: 100vw; */
+    width: 95vw;
+    margin: auto;
     /* border: 2px solid red; */
 }
 #messageInp{
