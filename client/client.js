@@ -34,11 +34,11 @@ function append(message, position) {
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
 
-    if (!hasJoined) {
-        alert('You need to join the chat first!');
-        messageInp.value="";
-        return; 
-    }
+    // if (!hasJoined) {
+    //     alert('You need to join the chat first!');
+    //     messageInp.value="";
+    //     return; 
+    // }
 
     const message=messageInp.value;
     append(`You :- ${message}`,'right');

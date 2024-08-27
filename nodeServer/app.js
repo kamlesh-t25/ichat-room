@@ -5,7 +5,8 @@ const { Server } = require('socket.io');
 const server = http.createServer();
   const io = new Server(server, {
     cors: {
-      origin: 'https://ichat-room-user.onrender.com/',
+      // origin:  ['https://ichat-room-user.onrender.com', 'http://127.0.0.1:5500'],
+      origin:'*',
       methods: ['GET', 'POST']
     }
   });
