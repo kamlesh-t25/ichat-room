@@ -1,4 +1,4 @@
-const socket=io('https://ichat-room-3.onrender.com');
+const socket=io('https://ichat-room-server.onrender.com');
 
 const form=document.getElementById('formId');
 const messageInp=document.getElementById('messageInp');
