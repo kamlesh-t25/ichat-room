@@ -4,11 +4,13 @@ const form=document.getElementById('formId');
 const messageInp=document.getElementById('messageInp');
 const messageContainer=document.querySelector('.container');
 
+let hasJoined = false;
 
 document.getElementById('joinChatButton').addEventListener('click', () => {
     const name = prompt('Enter your name to join chat');
     if (name) {
         socket.emit('new-user-joined', name);
+        hasJoined=true;
         console.log(name);
     }
 });
@@ -31,6 +33,13 @@ function append(message, position) {
 
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
+
+    if (!hasJoined) {
+        alert('You need to join the chat first!');
+        messageInp.value="";
+        return; 
+    }
+
     const message=messageInp.value;
     append(`You :- ${message}`,'right');
     socket.emit('send',message);
