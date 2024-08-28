@@ -58,6 +58,7 @@ nav h3{
     width: 22%;
     border: 2px solid blue;
     height: 70vh;
+    overflow-y: auto;
 }
 
 .left{

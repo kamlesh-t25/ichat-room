@@ -6,6 +6,13 @@ const messageContainer=document.querySelector('.container');
 
 let hasJoined = false;
 
+// //for scroll to bottom
+// function scrollToBottom() {
+//     const bottomMarker = document.getElementById('bottom-marker');
+//     bottomMarker.scrollIntoView({ behavior: 'smooth' });
+//   }
+
+
 document.getElementById('joinChatButton').addEventListener('click', () => {
     const name = prompt('Enter your name to join chat');
     if (name) {
@@ -34,11 +41,11 @@ function append(message, position) {
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
 
-    // if (!hasJoined) {
-    //     alert('You need to join the chat first!');
-    //     messageInp.value="";
-    //     return; 
-    // }
+    if (!hasJoined) {
+        alert('You need to join the chat first!');
+        messageInp.value="";
+        return; 
+    }
 
     const message=messageInp.value;
     append(`You :- ${message}`,'right');
