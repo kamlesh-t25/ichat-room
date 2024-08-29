@@ -98,7 +98,8 @@ nav h3{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    flex: 1;
+    /* flex: 1; */
+    
 }
 #submitB{
     padding: 8px 12px;
