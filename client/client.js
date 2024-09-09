@@ -48,17 +48,17 @@ form.addEventListener('submit',(e)=>{
     }
 
     const message=messageInp.value;
-    append(`You :- ${message}`,'right');
+    append(`You - ${message}`,'right');
     socket.emit('send',message);
     messageInp.value='';
     // console.log('2222');
 })
 
 socket.on('receive',data=>{
-    append(`${data.name} : ${data.message}`,'left');
+    append(`${data.name} - ${data.message}`,'left');
     console.log('3333');
 })
 
 socket.on('left',name=>{
-    append(`${name}:-  left the chat room.`,'left');
+    append(`${name} left the chat room.`,'left');
 })
