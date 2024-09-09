@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
 
 
   socket.on('send', (message) => {
-    socket.broadcast.emit('receive', { message: message, name: users[socket.id] });
+    socket.broadcast.emit('receive', { message: message, name: users[socket.id].toUpperCase() });
 });
 
 
