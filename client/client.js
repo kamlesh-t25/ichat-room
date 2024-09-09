@@ -24,7 +24,7 @@ document.getElementById('joinChatButton').addEventListener('click', () => {
 
 socket.on('user-joined', name => {
     // console.log('1111');
-    append(`${name}  -: joined the chat`, 'right');
+    append(`${name} joined the chat`, 'right');
 });
 
 function append(message, position) {
